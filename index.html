@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Receba o PDF</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+    input, button { padding: 10px; font-size: 16px; margin-top: 10px; }
+    form { margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Baixe o PDF gratuito</h1>
+  <p>Digite seu e-mail para receber o conteúdo:</p>
+
+  <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <input type="email" name="email" required placeholder="Seu e-mail" />
+    <br/>
+    <button type="submit">Quero o PDF</button>
+  </form>
+
+  <script>
+    // Redireciona para o PDF após envio
+    document.querySelector("form").addEventListener("submit", function (e) {
+      setTimeout(function () {
+        window.location.href = "pdfs/seu-arquivo.pdf";
+      }, 1000); // espera 1 segundo antes do redirecionamento
+    });
+  </script>
+</body>
+</html>
