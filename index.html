@@ -67,19 +67,37 @@
     <h1>Baixe o PDF gratuito</h1>
     <p>Digite seu e-mail para receber a Lista de Exercícios:</p>
 
-    <form action="https://formspree.io/f/xqaqyeaq" method="POST">
+    <form id="emailForm">
       <input type="email" name="email" required placeholder="Seu e-mail" />
       <button type="submit">Quero o PDF</button>
     </form>
   </div>
 
   <script>
-    // Redireciona para o PDF após envio
-    document.querySelector("form").addEventListener("submit", function (e) {
-      e.preventDefault()
-      setTimeout(function () {
-        window.location.href = "Live_referenciais_nao_inerciais.pdf";
-      }, 1000);
+    document.getElementById("emailForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const formData = new FormData(form);
+
+      fetch("https://formspree.io/f/xqaqyeaq", {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: formData
+      })
+      .then(response => {
+        if (response.ok) {
+          window.location.href = "Live_referenciais_nao_inerciais.pdf";
+        } else {
+          alert("Erro ao enviar o formulário. Tente novamente.");
+        }
+      })
+      .catch(error => {
+        console.error("Erro:", error);
+        alert("Erro ao enviar. Verifique sua conexão.");
+      });
     });
   </script>
 </body>
