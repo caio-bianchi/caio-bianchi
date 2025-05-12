@@ -3,32 +3,82 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Receba o PDF</title>
+  <title>Receba o PDF da Lista de Exercícios!</title>
   <style>
-    body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
-    input, button { padding: 10px; font-size: 16px; margin-top: 10px; }
-    form { margin-top: 20px; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    p {
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    input[type="email"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
   </style>
 </head>
 <body>
-  <h1>Baixe o PDF gratuito</h1>
-  <p>Digite seu e-mail para receber o conteúdo:</p>
+  <div class="container">
+    <h1>Baixe o PDF gratuito</h1>
+    <p>Digite seu e-mail para receber o conteúdo:</p>
 
-  <form
-  action="https://formspree.io/f/xqaqyeaq"
-  method="POST"
->
-    <input type="email" name="email" required placeholder="Seu e-mail" />
-    <br/>
-    <button type="submit">Quero o PDF</button>
-  </form>
+    <form action="https://formspree.io/f/xqaqyeaq" method="POST">
+      <input type="email" name="email" required placeholder="Seu e-mail" />
+      <button type="submit">Quero o PDF</button>
+    </form>
+  </div>
 
   <script>
     // Redireciona para o PDF após envio
     document.querySelector("form").addEventListener("submit", function (e) {
       setTimeout(function () {
         window.location.href = "seu-arquivo.pdf";
-      }, 1000); // espera 1 segundo antes do redirecionamento
+      }, 1000);
     });
   </script>
 </body>
