@@ -76,8 +76,9 @@
   <script>
     // Redireciona para o PDF após envio
     document.querySelector("form").addEventListener("submit", function (e) {
+      e.preventDefault()
       setTimeout(function () {
-        window.location.href = "seu-arquivo.pdf";
+        window.location.href = "Live_referenciais_nao_inerciais.pdf";
       }, 1000);
     });
   </script>
